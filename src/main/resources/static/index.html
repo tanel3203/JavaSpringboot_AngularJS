@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" >
+<head>
+    <title>Transpordipunkti lisamine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src ="js/app.js"></script>
+</head>
+<body ng-app="transpordiapp">
+<div class="container" ng-controller="TransferController as tf">
+    <h1>Transpordipunkti lisamine</h1>
+
+    <form name="form">
+        <div class="form-group" >
+            <input type="text" placeholder="address" class="form-control" ng-model="tf.address" ng-required="true"/>
+            <input type="text" placeholder="open hours begin" class="form-control" ng-model="tf.openHoursBegin" ng-required="false"/>
+            <input type="text" placeholder="open hours end" class="form-control" ng-model="tf.openHoursEnd" ng-required="false"/>
+            <input type="text" placeholder="active" class="form-control" ng-model="tf.active" ng-required="true"/>
+            <input type="text" placeholder="name" class="form-control" ng-model="tf.name" ng-required="true"/>
+            <input type="text" placeholder="score" class="form-control" ng-model="tf.score" ng-required="true"/>
+        </div>
+        <div class="form-group narrow-button">
+            <button class="btn btn-primary" ng-disabled="form.$invalid" ng-click="tf.addNewTransfer()">Add New Transfer</button>
+        </div>
+    </form>
+
+    <div>
+        <button class="btn btn-primary" ng-click="tf.getAllData()">Get Data</button>
+        <p>{{tf.found}}</p>
+    </div>
+</div>
+
+
+</body>
+</html>

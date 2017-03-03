@@ -1,0 +1,62 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Transpordipunkti lisamine</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" ></link>
+        <link rel="stylesheet" href="css/styles.css" ></link>
+
+        <!-- JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src ="js/app.js"></script>
+    </head>
+    <body ng-app="transpordiapp">
+    <div class="container" ng-controller="TimesController as tc">
+        <h1>Times</h1>
+
+
+            <table class="table table-bordered">
+                <head>
+                    <tr>
+                        <th colspan="1">Points open from 8-12 at minimum</th>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                    </tr>
+                </head>
+                <tr ng-repeat="row in tc.normalOpenTimes">
+                    <td>{{ row.name }}</td>
+                </tr>
+            </table>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="6">Points open for more than 10 hours daily</th>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <th>Opening</th>
+                        <th>Closing</th>
+                        <th>Active?</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="row in tc.longOpenTimes">
+                    <td>{{ row.address }}<add-country-directive></add-country-directive></td>
+                    <td>{{ row.openHoursBegin }}</td>
+                    <td>{{ row.openHoursEnd }}</td>
+                    <td>{{ row.active }}</td>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.score }}</td>
+                </tr>
+            </table>
+
+    </div>
+
+
+    </body>
+</html>
